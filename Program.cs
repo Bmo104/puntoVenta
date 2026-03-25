@@ -1,6 +1,6 @@
 ﻿namespace puntoVenta;
 
-public class Usuario (string nombre, string passwd)
+public class Usuario(string nombre, string passwd)
 {
     public string nombre = nombre;
     public string passwd = passwd;
@@ -16,19 +16,20 @@ public class Usuario (string nombre, string passwd)
         }
     }
 }
-public class Producto (string nombre, double precio)
+public class Producto(string nombre, double precio)
 {
     public string nombre = nombre;
     public double precio = precio;
     static Random rnd = new Random();
     public int stock = rnd.Next(1, 100);
 }
-public class Factura (Usuario usuario)
+public class Factura(Usuario usuario)
 {
     private List<Producto> productos = new List<Producto>();
     public void AgregarProducto(Producto producto)
     {
-        if (producto.stock > 0) {
+        if (producto.stock > 0)
+        {
             productos.Add(producto);
             producto.stock--;
         }
@@ -76,102 +77,116 @@ class Program
     {
         List<Usuario> usuarios = new List<Usuario>();
         List<Producto> productos = new List<Producto>();
-        System.Console.WriteLine("Bienvenido al punto de venta");
-        System.Console.WriteLine("Qué quiere hacer? (introduzca índice)");
-        System.Console.WriteLine("1. Crear usuario");
-        System.Console.WriteLine("2. Crear producto");
-        System.Console.WriteLine("3. Iniciar sesión");
-        switch (Console.ReadLine())
+        Boolean continuar = true;
+        do
         {
-            case "1":
-                System.Console.WriteLine("Introduzca el nombre del usuario");
-                string nombre = Console.ReadLine();
-                System.Console.WriteLine("Introduzca la contraseña del usuario");
-                string passwd = Console.ReadLine();
-                Usuario usuario = new Usuario(nombre, passwd);
-                System.Console.WriteLine($"Usuario {usuario.nombre} creado exitosamente");
-                usuarios.Add(usuario);
-                break;
-            case "2":
-                System.Console.WriteLine("Introduzca el nombre del producto");
-                string nombreProducto = Console.ReadLine();
-                System.Console.WriteLine("Introduzca el precio del producto");
-                double precioProducto = 0.0;
-                bool valPrec = false;
-                do
-                {
-                    try 
+            System.Console.WriteLine("Bienvenido al punto de venta");
+            System.Console.WriteLine("Qué quiere hacer? (introduzca índice)");
+            System.Console.WriteLine("1. Crear usuario");
+            System.Console.WriteLine("2. Crear producto");
+            System.Console.WriteLine("3. Iniciar sesión");
+            System.Console.WriteLine("4. Salir");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    System.Console.WriteLine("Introduzca el nombre del usuario");
+                    string nombre = Console.ReadLine();
+                    System.Console.WriteLine("Introduzca la contraseña del usuario");
+                    string passwd = Console.ReadLine();
+                    Usuario usuario = new Usuario(nombre, passwd);
+                    System.Console.WriteLine($"Usuario {usuario.nombre} creado exitosamente");
+                    usuarios.Add(usuario);
+                    break;
+                case "2":
+                    System.Console.WriteLine("Introduzca el nombre del producto");
+                    string nombreProducto = Console.ReadLine();
+                    System.Console.WriteLine("Introduzca el precio del producto");
+                    double precioProducto = 0.0;
+                    bool valPrec = false;
+                    do
                     {
-                        precioProducto = Convert.ToDouble(Console.ReadLine());
-                        valPrec = true;
-                    }
-                    catch 
-                    {
-                        System.Console.WriteLine("Introduzca un precio válido");
-                    }
-                } while (!valPrec);
-                Producto producto = new Producto(nombreProducto, precioProducto);
-                System.Console.WriteLine($"Producto {producto.nombre} creado exitosamente con precio {producto.precio}");
-                productos.Add(producto);
-                break;
-            case "3":
-                System.Console.WriteLine("Introduzca el nombre del usuario");
-                string nombreLogin = Console.ReadLine();
-                System.Console.WriteLine("Introduzca la contraseña del usuario");
-                foreach (Usuario user in usuarios)
-                {
-                    if (user.nombre == nombreLogin)
-                    {
-                        string passwdLogin = Console.ReadLine();
-                        user.iniciarSesion(nombreLogin, passwdLogin);
-                        Factura factura = new Factura(user);
-                        System.Console.WriteLine("Qué quiere hacer? (introduzca índice)");
-                        System.Console.WriteLine("1. Comprar producto");
-                        System.Console.WriteLine("2. Ver factura");
-                        System.Console.WriteLine("3. Eliminar producto de la factura");
-                        System.Console.WriteLine("");
-                        System.Console.WriteLine("5. Salir");
-                        switch (Console.ReadLine())
+                        try
                         {
-                            case "1":
-                                System.Console.WriteLine("Introduzca el nombre del producto");
-                                string nombreProductoFactura = Console.ReadLine();
-                                foreach (Producto prod in productos)
+                            precioProducto = Convert.ToDouble(Console.ReadLine());
+                            valPrec = true;
+                        }
+                        catch
+                        {
+                            System.Console.WriteLine("Introduzca un precio válido");
+                        }
+                    } while (!valPrec);
+                    Producto producto = new Producto(nombreProducto, precioProducto);
+                    System.Console.WriteLine($"Producto {producto.nombre} creado exitosamente con precio {producto.precio}");
+                    productos.Add(producto);
+                    break;
+                case "3":
+                    System.Console.WriteLine("Introduzca el nombre del usuario");
+                    string nombreLogin = Console.ReadLine();
+                    System.Console.WriteLine("Introduzca la contraseña del usuario");
+                    foreach (Usuario user in usuarios)
+                    {
+                        if (user.nombre == nombreLogin)
+                        {
+                            string passwdLogin = Console.ReadLine();
+                            user.iniciarSesion(nombreLogin, passwdLogin);
+                            Factura factura = new Factura(user);
+                            Boolean continuar2 = true;
+                            do
+                            {
+                                System.Console.WriteLine("Qué quiere hacer? (introduzca índice)");
+                                System.Console.WriteLine("1. Comprar producto");
+                                System.Console.WriteLine("2. Ver factura");
+                                System.Console.WriteLine("3. Eliminar producto de la factura");
+                                System.Console.WriteLine("4. Salir");
+                                switch (Console.ReadLine())
                                 {
-                                    if (prod.nombre == nombreProductoFactura)
-                                    {
-                                        factura.AgregarProducto(prod);
-                                        System.Console.WriteLine($"Producto {prod.nombre} agregado a la factura");
+                                    case "1":
+                                        System.Console.WriteLine("Introduzca el nombre del producto");
+                                        string nombreProductoFactura = Console.ReadLine();
+                                        foreach (Producto prod in productos)
+                                        {
+                                            if (prod.nombre == nombreProductoFactura)
+                                            {
+                                                factura.AgregarProducto(prod);
+                                                System.Console.WriteLine($"Producto {prod.nombre} agregado a la factura");
+                                                break;
+                                            }
+                                        }
                                         break;
-                                    }
-                                }
-                                break;
-                            case "2":
-                                factura.verFactura();
-                                break;
-                            case "3":
-                                System.Console.WriteLine("Introduzca el nombre del producto");
-                                string nombreProductoEliminar = Console.ReadLine();
-                                foreach (Producto prod in productos)
-                                {
-                                    if (prod.nombre == nombreProductoEliminar)
-                                    {
-                                        factura.eliminarProducto(prod);
-                                        System.Console.WriteLine($"Producto {prod.nombre} eliminado de la factura");
+                                    case "2":
+                                        factura.verFactura();
                                         break;
-                                    }
+                                    case "3":
+                                        System.Console.WriteLine("Introduzca el nombre del producto");
+                                        string nombreProductoEliminar = Console.ReadLine();
+                                        foreach (Producto prod in productos)
+                                        {
+                                            if (prod.nombre == nombreProductoEliminar)
+                                            {
+                                                factura.eliminarProducto(prod);
+                                                System.Console.WriteLine($"Producto {prod.nombre} eliminado de la factura");
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    case "4":
+                                        continuar2 = false;
+                                        break;
+                                    default:
+                                        System.Console.WriteLine("Opción no válida");
+                                        break;
                                 }
-                                break;
-                            default:
-                                System.Console.WriteLine("Opción no válida");
-                                break;
+                            } while(continuar2);
                         }
                     }
-                }
-                break;
-            default:
-                System.Console.WriteLine("Opción no válida");
-                break;
-        }
+                    break;
+                case "4":
+                    continuar = false;
+                    break;
+                default:
+                    System.Console.WriteLine("Opción no válida");
+                    break;
+            }
+        } while (continuar);
     }
 }

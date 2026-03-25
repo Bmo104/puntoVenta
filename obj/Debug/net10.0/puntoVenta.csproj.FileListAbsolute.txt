@@ -12,3 +12,4 @@ C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\refint\p
 C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.pdb
 C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.genruntimeconfig.cache
 C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\ref\puntoVenta.dll
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.sourcelink.json
