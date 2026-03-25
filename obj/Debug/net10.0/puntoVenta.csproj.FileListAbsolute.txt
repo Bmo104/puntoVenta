@@ -1,0 +1,14 @@
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\bin\Debug\net10.0\puntoVenta.exe
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\bin\Debug\net10.0\puntoVenta.deps.json
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\bin\Debug\net10.0\puntoVenta.runtimeconfig.json
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\bin\Debug\net10.0\puntoVenta.dll
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\bin\Debug\net10.0\puntoVenta.pdb
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.AssemblyInfoInputs.cache
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.AssemblyInfo.cs
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.csproj.CoreCompileInputs.cache
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.dll
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\refint\puntoVenta.dll
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.pdb
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\puntoVenta.genruntimeconfig.cache
+C:\Users\abima\OneDrive\Documentos\Codigos\puntoVenta\obj\Debug\net10.0\ref\puntoVenta.dll
